@@ -1,0 +1,1 @@
+	N = 16;								% Decimation factor	wTaxis = 0.1*pi; 	wT = linspace(eps, wTaxis, 1000);	Hc = sin(wT*N)./(N*sin(wT));												% Single-comb filter	subplot('position', [0.1 0.4 0.88 0.5]);	plot(wT, H_2_Mag(Hc)),				hold on	Hs = 3*Hc.^2-2*Hc.^3; 						% Sharpened filter  	PLOT_MAG_Z_dB(wT, Hs, wTaxis, 60, 'H')

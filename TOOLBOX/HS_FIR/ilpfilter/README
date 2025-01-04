@@ -1,0 +1,32 @@
+This package contains Matlab routines for generating structures for FIR
+filters. The package supports structures on both direct form and
+transposed direct form. Additionally, on direct form the coefficient
+symmetry of linear-phase FIR filters may be exploited by the use of
+symmetry adders. For all structures, the products of coefficients and
+data are not computed explicitly, instead partial products are generated
+and merged together in a single carry-save adder tree. The package
+contains routines for generating the reduction tree either using common
+heuristics or bit-level optimization using integer linear-programming
+problem solving.
+
+Initially, the motive of the software was to analyze structures for
+high-speed decimation filters. Hence, the functions are geared towards
+multi-rate structures with several input branches using the same
+sampling rate as the output. However, general single-rate FIR filters 
+are also supported.
+
+For details on the filter architectures, please see the paper:
+Anton Blad and Oscar Gustafsson, "Integer Linear Programming-Based
+Bit-Level Optimization for High-Speed FIR Decimation Filter
+Architectures," Springer.
+
+If you use this software or results obtained from it in a scientific
+publication, please observe that you should add the above mentioned
+paper as a reference. See the file LICENSE for details.
+
+To use the package, edit the configuration options in firgenconf.m.
+Then start Matlab in the package directory. "addpath <packagepath>"
+should also work, but this is untested.
+
+See files ex*.m for examples on usage.
+

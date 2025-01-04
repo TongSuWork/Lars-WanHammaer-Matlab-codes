@@ -1,0 +1,1 @@
+	clear all	close all	clc	N = 18;	wT = linspace(0,pi,2000); % wT axis 0 to pi rad	Be = [0.1 0.9]*pi; W = [1 1]; D = [1 1];	[h, Err] = REMEZ_FIR(N, Be, D, W, 'h');	H = freqz(h,1, wT); % Frequency response	PLOT_Mag_PZ_h_HILBERT_FIR(wT, H, h, Be, D)

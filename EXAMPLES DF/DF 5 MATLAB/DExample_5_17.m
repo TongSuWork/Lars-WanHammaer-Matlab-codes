@@ -1,0 +1,1 @@
+	% LSE_FIR	clear all	close all	clc	wT = linspace(0,pi,1000);	Be = [0 0.1 0.25 0.5 0.6 0.7 0.75 0.85 0.9 1]*pi;	D = [0 0 0.7 0.7 0.5 0.5 0 0 1 1];	Norder = 100;  % Must be even	h = LSE_FIR(Norder, Be, D);	H = freqz(h,1,wT);		subplot(2,1,1), PLOT_MAG_Z_LS(wT, H, 0, 1.1, 'H')			

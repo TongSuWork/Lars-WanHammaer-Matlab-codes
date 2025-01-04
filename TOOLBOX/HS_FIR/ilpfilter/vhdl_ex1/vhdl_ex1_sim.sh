@@ -1,0 +1,1 @@
+#!/usr/bin/env bashvlib workvcom fa.vhdlvcom fa_noc.vhdlvcom ha.vhdlvcom ha_noc.vhdlvcom dff.vhdlvcom reg.vhdlvcom fir_pp.vhdlvcom fir_cs.vhdlvcom fir_vma.vhdlvcom fir.vhdlvcom fir_tb.vhdlvcom firref.vhdlvsim fir_tb

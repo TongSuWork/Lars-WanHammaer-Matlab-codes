@@ -1,0 +1,1 @@
+	%	Quantining		z = [-16:15]/16;	zp = 0.125*z;	xQ = floor(16*zp)/16;	error = zp - xQ;	subplot('position', [0.08 0.4 0.90 0.5]);	stem(z,error)	

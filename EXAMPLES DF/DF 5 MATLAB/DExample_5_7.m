@@ -1,0 +1,1 @@
+	% Box 5.2	fsample = 20;	wcT = 3*2*pi/fsample;	wsT = 4*2*pi/fsample;	wTedges = [wcT wsT];				% Band edges	b = [1 0];				% Desired gain in the bands	d = [0.01 0.001];			% Deviations in the bands	[N, Be, D, W] = L_PHASE_LP_FIR_ORDER(wTedges, d)	% Alternatively:  [N, Be, D, W] = HERRMANN_LP_FIR_ORDER(wT, d)	% Alternatively: [Nfirpm, Be, D, W] = firpmord(wT/pi, b, d);

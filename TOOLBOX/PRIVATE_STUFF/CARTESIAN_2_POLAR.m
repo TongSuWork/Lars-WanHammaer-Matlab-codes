@@ -1,0 +1,1 @@
+	function [r, theta] = CARTESIAN_2_POLAR(Z) 	% Coversion of Cartesian to polar representation 	% 	Toolbox for DIGITAL FILTERS USING MATLAB		% 	Author: 		Lars Wanhammar, 2007-02-19	% 	Modified by: 			% 	Copyright:		by authors - not released for commercial use	% 	Version: 		1	% 	Known bugs:	 	% 	Report bugs to:	lars.wanhammar@liu.se		r = abs(Z);	theta = angle(Z);

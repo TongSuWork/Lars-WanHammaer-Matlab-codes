@@ -1,0 +1,1 @@
+	function w = RECTANGULAR_WINDOW(N) 	%	Computes a rectangular window of length N+1	% 	% 	Toolbox for DIGITAL FILTERS USING MATLAB		% 	Author: 		Lars Wanhammar 2008-07-12	% 	Modified by: 	 		% 	Copyright:		by authors - not released for commercial use	% 	Version:		1		 	% 	Known bugs:			% 	Report bugs to:	Wanhammar@gmail.com		for n = 1:N+1		w(n) = 1;	end

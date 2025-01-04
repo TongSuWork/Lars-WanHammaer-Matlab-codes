@@ -1,0 +1,1 @@
+	function MAG = H_2_MAG(H) 	% 	Computes the magnitude response from the frequency response		% 	Toolbox for DIGITAL FILTERS USING MATLAB 		% 	Author: 		Lars Wanhammar	% 	Modified by: 		 	% 	Copyright:		by authors - not released for commercial use	% 	Version: 		1	% 	Known bugs:		 	% 	Report bugs to:	Wanhammar@gmail.com	H(abs(H) < eps) = eps;	MAG = 20*log10(abs(H));

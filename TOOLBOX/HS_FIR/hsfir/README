@@ -1,0 +1,74 @@
+This package contains Matlab routines for generating partial product 
+reduction trees using carry-save adders. The complexity of the final
+implementation is computed, and VHDL code implementing the algorithm
+is generated. The package supports several input and output branches.
+Each output branch is processed separately, but the code supports
+sharing of subexpressions between several branches. There may be
+delays between the generated partial product, and the package supports
+the possibility of using these as pipeline registers in the reduction 
+trees, where applicable.
+
+The generation is done in several separate stages:
+
+1. Partial product generation
+A set of initial partial products is generated from an algorithm-specific
+definition of the functionality. The bundled partial product generators
+are:
+* FIR filter direct form (DF)
+* FIR filter transposed direct form (TF)
+* FIR filter direct form utilizing coefficient symmetry (DFs)
+
+2. Subexpression sharing (optional)
+Subexpressions (possible shared adders) are identified and shared in and 
+between branches.
+
+3. Partial product reduction
+In this stage, the generated partial products are reduced to a redundant
+form consisting of at most two partial products per bit weight. The
+bundled reduction methods are:
+* Wallace tree
+* Dadda tree
+* Reduced Area tree
+* Bit-level optimization using integer linear programming
+
+4. Vector merge adder
+The reduction tree result is converted to non-redundant form by the
+vector merge adder. In the bundled package, the VMA is generated as a
+partial product reduction tree, and the possible elements are therefore
+constrained to adders and registers. The bundled VMA generators are:
+* Ripple-carry VMA
+
+5. Complexity computation
+The number of used components for the different subsystems are computed.
+
+6. Code generation
+VHDL code is generated. The code is grouped in the following modules:
+* Bit-level algorithm implementation
+* Reference implementation
+* Testbench and stimuli generation
+* Simulation and synthesis helper scripts
+The bit-level implementation is algorithm-independent, but the reference
+implementation must be adapted for new algorithms.
+
+For details on the filter architectures, please see [1]. For details on
+subexpression sharing, see [2].
+
+If you use this software or results obtained from it in a scientific
+publication, please add [1] as a reference.
+
+To use the package, copy firgenconf.m.template to firgenconf.m and edit 
+the configuration options. Start matlab and use "addpath <packagepath>".
+
+See files ex*.m for examples on usage.
+
+References
+[1] A. Blad and O. Gustafsson, "Integer Linear Programming-Based Bit-Level
+Optimization for High-Speed FIR Decimation Filter Architectures," Circuits,
+Systems and Signal Processing - Special Issue, Low Power Digital Filters,
+21 pages, 2009. doi: 10.1007/s00034-009-9116-5.
+Available: http://www.springerlink.com/content/tw41673711244025/fulltext.pdf
+
+[2] A. Blad and O. Gustafsson, "Redundancy Reduction for High-Speed FIR
+Filter Architectures Based on Carry-Save Adder Trees," IEEE Int. Symp.
+Circuits Syst., Paris, May 30-June 2, 2010.
+

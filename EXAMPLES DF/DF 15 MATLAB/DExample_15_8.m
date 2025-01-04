@@ -1,0 +1,1 @@
+	clear all	close all	clc	wcT = 0.4*pi; wsT = 0.405*pi; 	dc = 0.01; ds = 0.01;	Nstages = 4;			% Number of stages	[hvect, H] = MULTI_STAGE_MULTIRATE_HB(wcT, wsT, dc, ds, Nstages);	subplot(2,1,1)	 	wT = linspace(0,pi,length(H));	PLOT_MAG_Z_dB(wT, H, pi, 100, 'H') 	%	hvect		

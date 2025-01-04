@@ -1,0 +1,1 @@
+	function y = DOWNSAMPLE(x, M)		% 	Down-samples a sequnce x with a factor M 		%	Toolbox for DIGITAL FILTERS USING MATLAB	%	% 	Author: 		Lars Wanhammar 2003-06-24	% 	Modified by: 	 	% 	Copyright:		by authors - not released for commercial use	%	Version: 		1 	%	Known bugs:	 	% 	Report bugs to:	Wanhammar@gmail.com		%	if M > 1		y = x(1:M:end);	else		y = x;	end	

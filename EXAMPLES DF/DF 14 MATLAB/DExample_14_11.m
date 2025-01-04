@@ -1,0 +1,1 @@
+	% EX 14.11		clear all, close all	clc	M = 3; wcT = 0.1*pi;   wsT = 0.5*pi;  		[h, Err] = REMEZ_FIR(11, [0,0.1,0.5,1]*pi, [1 1 0 0], [1 10],'m');	Err		wT = linspace(0,pi,1000);	H = freqz(h,1,wT);	subplot(2,1,1),	PLOT_MAG_Z_dB(wT, H, pi, 80,'H')	reshape(h, M, length(h)/M)	

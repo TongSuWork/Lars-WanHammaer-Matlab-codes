@@ -1,0 +1,1 @@
+	clear all, close all 	% Setting the input parameters for fir2	F = [0,0.1,0.3,1]; 		% Band edges (divided by ¹)	A = [0,1,0,0];    		% Magnitude at the band edges	x = fir2(1024, F, A);  	% Signal x(nT)	wT = linspace(0,pi, 1024);	X = abs(freqz(x,1,wT));		% Real-values spectrum		subplot(2,1,1) 	PLOT_ABS_Z(wT, X,'X')  	  

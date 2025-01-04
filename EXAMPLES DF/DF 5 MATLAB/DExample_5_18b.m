@@ -1,0 +1,1 @@
+	% Box 5.18b	clear all	close all	A(1, 1:3) = [2 1 2];	A(2, 1:3) = [-1 -1 0];	A(3, 1:3) = [0 -1 -1];	A(4, 1:3) = [-1 0 -1];	b = [1 0 -1 2]';	c = [1 0 3]'; 	vlb = [0 -2  -3]';	vub = [1 4 1]';%	x = lp(c, A, b, vlb, vub); % Old verson	 x = linprog(c, A, b, vlb, vub); 	f = c'*x	

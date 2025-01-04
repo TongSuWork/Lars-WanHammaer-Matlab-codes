@@ -1,0 +1,1 @@
+#!/usr/bin/env bashdc_shell-t -f dc.cmd

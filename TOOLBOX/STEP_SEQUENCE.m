@@ -1,0 +1,2 @@
+	function [s, n] = STEP_SEQUENCE(n0, n1, n2)	% Generates a step sequence, s(n) = u(n-n0), where n1 <= n0 <= n2 	% 	Toolbox for DIGITAL FILTERS USING MATLAB
+ 	% Author: 			Lars Wanhammar 2004-07-17	% Modified by: 	 	% Copyright:		by authors - not released for commercial use	% Version:			1 	% Known bugs:			% Report bugs to:	Wanhammar@gmail.com	%	n = [n1, n2];	s = [(n-n0) >= 0];

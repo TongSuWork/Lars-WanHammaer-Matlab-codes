@@ -1,0 +1,64 @@
+function csspec = makewallace(ppspec, archspec)
+%csspec = makewallace(ppspec, archspec)
+%
+%Create a Wallace tree to sum partial products.
+%Inputs:
+%  ppspec - partial product specification
+%  archspec - architecture specification
+%Outputs:
+%  csspec - structure describing placement of adders in CS tree
+
+%Copyright (C) 2008 Anton Blad, Oscar Gustafsson.
+%This file is licensed under a modified version of GPL v2, see the file
+%LICENSE for details.
+
+inbits = ppspec.inbits;
+cterm = ppspec.cterm;
+maxheight = archspec.maxheight;
+
+bits = inbits;
+bits(end, :) = bits(end, :) + cterm;
+fa = [];
+ha = [];
+
+W = size(inbits, 2);
+M = size(inbits, 1);
+
+m = 1;
+
+obits = zeros(M, W);
+
+while m <= M || max(bits(end, :)) > 2
+	fa = [fa; floor(bits(m, :)/3)];
+	ha = [ha; bits(m, :) == 2];
+	if m >= M
+		bits = [bits; zeros(1, W)];
+	end
+	a = fa(end, :) + ha(end, :);
+	obits(m, :) = bits(m, :) - 3*fa(m, :) - 2*ha(m, :) + [a(2:end) 0] + a;
+	bits(m+1, :) = bits(m+1, :) + obits(m, :);
+	m = m + 1;
+end
+
+regs = zeros(size(bits, 1)-1, size(bits, 2));
+
+for m = maxheight:maxheight:size(regs, 1)
+	regs(m, :) = obits(m, :);
+end
+
+outdelay = mod(size(regs, 1), maxheight);
+
+ppin = zeros(size(bits, 1)-1, size(bits, 2));
+ppin(1:size(inbits, 1), :) = inbits;
+cin = zeros(size(bits, 1)-1, size(bits, 2));
+cin(1, :) = cterm;
+
+csspec.ppin = ppin;
+csspec.cin = cin;
+csspec.bits = bits;
+csspec.fa = fa;
+csspec.ha = ha;
+csspec.regs = regs;
+csspec.bout = bits(end, :);
+csspec.outdelay = outdelay;
+
